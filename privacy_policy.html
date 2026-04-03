@@ -1,118 +1,320 @@
-# Privacy Policy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Orbit Swap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0a1a;
+    --bg-card: rgba(255,255,255,0.04);
+    --accent: #7df9ff;
+    --accent-glow: rgba(125,249,255,0.25);
+    --accent-hot: #ff6b6b;
+    --text-primary: #e8eaf0;
+    --text-secondary: #8a8fa8;
+    --border: rgba(125,249,255,0.12);
+    --radius: 16px;
+  }
 
-**Last updated:** 01/06/2026  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-**Orbit Swap** (“we,” “our,” or “us”) values your privacy. This Privacy Policy explains how information is collected, used, and protected when you use the Orbit Swap mobile application.
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
----
+  /* Subtle background dots */
+  .dots-bg {
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(125,249,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
 
-## 1. Information We Collect
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(100px);
+    opacity: 0.2;
+  }
+  .orb-1 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--accent), transparent 70%);
+    top: -100px; right: -100px;
+  }
+  .orb-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, #a78bfa, transparent 70%);
+    bottom: 10%; left: -80px;
+  }
 
-We collect limited data to support app performance, analytics, and advertising.
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    animation: fadeIn 0.6s ease-out;
+  }
 
-### 1.1 App Performance and Diagnostics Data
-Orbit Swap uses **Firebase Analytics** and **Firebase Crashlytics** to collect:
-- Crash logs  
-- Diagnostics data  
-- App performance and stability metrics  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-This data is used to identify bugs, monitor app health, and improve overall reliability.
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .header .badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(125,249,255,0.08);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.4em 1.2em;
+    margin-bottom: 1rem;
+  }
+  .header h1 {
+    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+  .header h1 span {
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .updated {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
 
-We do **not** collect:
-- Names or email addresses  
-- Precise location data  
-- Messages, files, or user-generated content  
-- Device identifiers such as IMEI or MAC address  
+  /* Card */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 
----
+  /* Typography inside card */
+  .card h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-top: 2.2rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .card h2:first-child {
+    margin-top: 0;
+  }
 
-### 1.2 Advertising Data
-Orbit Swap displays advertisements using third-party advertising services.
+  .card h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
 
-These services may automatically collect:
-- Advertising identifiers (such as Google Advertising ID)  
-- Approximate device information (e.g., device type, operating system version)  
-- Ad interaction data (such as impressions and clicks)  
+  .card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+  }
+  .card p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
 
-This information is used to:
-- Display ads  
-- Measure ad performance  
-- Support advertising-related functionality  
+  .card ul {
+    list-style: none;
+    margin: 0.6rem 0 1rem 0;
+    padding: 0;
+  }
+  .card ul li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+  }
+  .card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
 
-We do not use advertising data to personally identify users.
+  .card a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(125,249,255,0.2);
+    transition: border-color 0.2s;
+  }
+  .card a:hover {
+    border-color: var(--accent);
+  }
 
----
+  .contact-block {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-top: 0.8rem;
+  }
+  .contact-block p {
+    margin-bottom: 0.3rem;
+  }
 
-## 2. How We Use Information
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover {
+    color: var(--accent);
+  }
+  .back-link svg {
+    width: 16px; height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>
+</head>
+<body>
 
-Collected information is used for the following purposes:
-- **Analytics:** monitoring app usage trends, diagnosing crashes, and improving performance  
-- **Advertising or marketing:** displaying ads and measuring ad effectiveness  
+<div class="dots-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-We do **not** use collected data for:
-- Selling user data  
-- Direct marketing communications  
-- Personal profiling beyond ad delivery  
+<div class="container">
+  <div class="header">
+    <div class="badge">Legal</div>
+    <h1><span>Privacy Policy</span></h1>
+    <p class="updated">Last updated: January 6, 2026</p>
+  </div>
 
----
+  <div class="card">
+    <p><strong>Orbit Swap</strong> ("we," "our," or "us") values your privacy. This Privacy Policy explains how information is collected, used, and protected when you use the Orbit Swap mobile application.</p>
 
-## 3. Data Sharing
+    <h2>1. Information We Collect</h2>
+    <p>We collect limited data to support app performance, analytics, and advertising.</p>
 
-We do **not sell** user data.
+    <h3>1.1 App Performance and Diagnostics Data</h3>
+    <p>Orbit Swap uses <strong>Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong> to collect:</p>
+    <ul>
+      <li>Crash logs</li>
+      <li>Diagnostics data</li>
+      <li>App performance and stability metrics</li>
+    </ul>
+    <p>This data is used to identify bugs, monitor app health, and improve overall reliability.</p>
+    <p>We do <strong>not</strong> collect:</p>
+    <ul>
+      <li>Names or email addresses</li>
+      <li>Precise location data</li>
+      <li>Messages, files, or user-generated content</li>
+      <li>Device identifiers such as IMEI or MAC address</li>
+    </ul>
 
-Information may be shared with trusted third-party service providers **only as necessary to operate the app**, including:
-- **Google Firebase** (analytics and crash reporting)  
-- **Advertising partners** (for ad delivery and measurement)
+    <h3>1.2 Advertising Data</h3>
+    <p>Orbit Swap displays advertisements using third-party advertising services. These services may automatically collect:</p>
+    <ul>
+      <li>Advertising identifiers (such as Google Advertising ID)</li>
+      <li>Approximate device information (e.g., device type, operating system version)</li>
+      <li>Ad interaction data (such as impressions and clicks)</li>
+    </ul>
+    <p>This information is used to display ads, measure ad performance, and support advertising-related functionality.</p>
+    <p>We do not use advertising data to personally identify users.</p>
 
-These providers process data in accordance with their own privacy policies and applicable laws.
+    <h2>2. How We Use Information</h2>
+    <p>Collected information is used for the following purposes:</p>
+    <ul>
+      <li><strong>Analytics:</strong> monitoring app usage trends, diagnosing crashes, and improving performance</li>
+      <li><strong>Advertising or marketing:</strong> displaying ads and measuring ad effectiveness</li>
+    </ul>
+    <p>We do <strong>not</strong> use collected data for selling user data, direct marketing communications, or personal profiling beyond ad delivery.</p>
 
----
+    <h2>3. Data Sharing</h2>
+    <p>We do <strong>not sell</strong> user data.</p>
+    <p>Information may be shared with trusted third-party service providers <strong>only as necessary to operate the app</strong>, including:</p>
+    <ul>
+      <li><strong>Google Firebase</strong> (analytics and crash reporting)</li>
+      <li><strong>Advertising partners</strong> (for ad delivery and measurement)</li>
+    </ul>
+    <p>These providers process data in accordance with their own privacy policies and applicable laws.</p>
 
-## 4. Data Retention
+    <h2>4. Data Retention</h2>
+    <p>Data is retained only for as long as necessary to monitor app performance, diagnose and resolve technical issues, and support analytics and advertising functionality.</p>
+    <p>Retention practices follow the policies of our third-party service providers.</p>
 
-Data is retained only for as long as necessary to:
-- Monitor app performance  
-- Diagnose and resolve technical issues  
-- Support analytics and advertising functionality  
+    <h2>5. Children's Privacy</h2>
+    <p>Orbit Swap does <strong>not knowingly collect personal information from children under the age of 13</strong>.</p>
+    <p>If you believe a child has provided personal data through the app, please contact us and we will take appropriate steps to remove the information.</p>
 
-Retention practices follow the policies of our third-party service providers.
+    <h2>6. Data Security</h2>
+    <p>We take reasonable measures to protect collected information, including using reputable third-party services with industry-standard security practices and limiting data collection to what is necessary for app operation.</p>
 
----
+    <h2>7. User Choices</h2>
+    <p>Users may control or reset advertising identifiers through their device's system settings. Where supported, users can also limit ad personalization through their device or Google account preferences.</p>
 
-## 5. Children’s Privacy
+    <h2>8. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated revision date.</p>
 
-Orbit Swap does **not knowingly collect personal information from children under the age of 13**.
+    <h2>9. Contact Information</h2>
+    <p>If you have questions about this Privacy Policy, please contact us:</p>
+    <div class="contact-block">
+      <p><strong>Email:</strong> <a href="mailto:ashenoydeveloper@gmail.com">ashenoydeveloper@gmail.com</a></p>
+    </div>
+  </div>
 
-If you believe a child has provided personal data through the app, please contact us and we will take appropriate steps to remove the information.
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    Back to signup
+  </a>
+</div>
 
----
-
-## 6. Data Security
-
-We take reasonable measures to protect collected information, including:
-- Using reputable third-party services with industry-standard security practices  
-- Limiting data collection to what is necessary for app operation  
-
----
-
-## 7. User Choices
-
-Users may control or reset advertising identifiers through their device’s system settings.
-
-Where supported, users can also limit ad personalization through their device or Google account preferences.
-
----
-
-## 8. Changes to This Privacy Policy
-
-We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated revision date.
-
----
-
-## 9. Contact Information
-
-If you have questions about this Privacy Policy, please contact us:
-
-**Email:** ashenoydeveloper@gmail.com  
-**Privacy Policy URL:** *(URL pending)*  
-
+</body>
+</html>
